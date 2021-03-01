@@ -16,7 +16,7 @@ Use the sidebar to set your parameters for:
 st.write('---')
 
 link = '[Photo by Eva Dang]("https://unsplash.com/@evantdang?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText")'
-st.image('/Users/David/PycharmProjects/Analytics_with_Streamlit/data/westminster.jpg', use_column_width=True)
+st.image('/data/westminster.jpg', use_column_width=True)
 st.markdown(link, unsafe_allow_html=True)
 
 
