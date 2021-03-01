@@ -15,9 +15,8 @@ Use the sidebar to set your parameters for:
 """)
 st.write('---')
 
-link = '[Photo by Eva Dang]("https://unsplash.com/@evantdang?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText")'
 st.image('/data/westminster.jpg', use_column_width=True)
-st.markdown(link, unsafe_allow_html=True)
+st.write("[Photo by Eva Dang](https://unsplash.com/@evantdang?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)")
 
 
 # Loads the Boston House Price Dataset
