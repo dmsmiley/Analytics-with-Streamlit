@@ -13,7 +13,7 @@ st.write('---')
 
 # Loads the Boston House Price Dataset
 column_names = ['CRIM', 'ZN', 'INDUS', 'CHAS', 'NOX', 'RM', 'AGE', 'DIS', 'RAD', 'TAX', 'PTRATIO', 'B', 'LSTAT', 'MEDV']
-boston = pd.read_csv('/Users/David/PycharmProjects/Analytics_with_Streamlit/data/housing.csv', header=None, delimiter=r"\s+", names=column_names)
+boston = pd.read_csv('/data/housing.csv', header=None, delimiter=r"\s+", names=column_names)
 column_sels = ['LSTAT', 'INDUS', 'NOX', 'PTRATIO', 'RM', 'TAX', 'DIS', 'AGE']
 X = boston.loc[:,column_sels]
 Y = boston['MEDV']
