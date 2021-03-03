@@ -15,12 +15,12 @@ Use the sidebar to set your parameters for:
 """)
 st.write('---')
 
-st.image('/data/westminster.jpg', use_column_width=True)
+st.image('data/westminster.jpg', use_column_width=True)
 st.write("[Photo by Eva Dang](https://unsplash.com/@evantdang?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)")
 
 
 # Loads the Boston House Price Dataset
-london = pd.read_csv('/Users/David/PycharmProjects/Analytics_with_Streamlit/data/London.csv', index_col=0)
+london = pd.read_csv('data/London.csv', index_col=0)
 # Drops non-numeric columns
 london = london.drop(columns=['Property Name', 'House Type', 'Location', 'City/County', 'Postal Code'])
 # Renames existing columns
