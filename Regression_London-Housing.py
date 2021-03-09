@@ -1,10 +1,10 @@
 # To run program simply 
-# 1) Install the necessary libraries, which are found in the requirements.txt file.
-# 2) Download the file "London.csv" in this repository
+# 1) Install the necessary libraries, which are found in the requirements.txt file (https://github.com/dmsmiley/Analytics-with-Streamlit/blob/main/requirements.txt).
+# 2) Download the file "London.csv" in this repository (https://github.com/dmsmiley/Analytics-with-Streamlit/blob/main/data/London.csv).
 # 3) Navigate to the appropriate dictionary in your terminal.
 # 4) Execute the following in the terminal: "streamlit run Regression_London-Housing.py"
-# 5) Open your web browser to the local host 
-# 6) Use the parameter settings on the sidebar
+# 5) Open your web browser to the local host as directed by the terminal.
+# 6) Use the parameter settings on the sidebar and dream about living in The Square Mile
 
 # For additional help below is the documentation for Streamlit
 # https://docs.streamlit.io/en/stable/
