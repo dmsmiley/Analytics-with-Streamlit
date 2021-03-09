@@ -1,3 +1,17 @@
+# To run program simply 
+# 1) Install the necessary libraries, which are found in the requirements.txt file.
+# 2) Download the file "London.csv" in this repository
+# 3) Navigate to the appropriate dictionary in your terminal.
+# 4) Execute the following in the terminal: "streamlit run Regression_London-Housing.py"
+# 5) Open your web browser to the local host 
+# 6) Use the parameter settings on the sidebar
+
+# For additional help below is the documentation for Streamlit
+# https://docs.streamlit.io/en/stable/
+
+# Please do not hesitate to ask for advice or report a bug!
+
+
 import streamlit as st
 import pandas as pd
 import shap
