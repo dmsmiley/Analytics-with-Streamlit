@@ -47,3 +47,6 @@ st.write("That is currently worth: $", round(current_USD,2))
 st.write("Which is a percentage change of ", round(perc_change, 2), "%")
 st.write('''# You Lost Out On''')
 st.write('$', round(usd_diff,2),"!!!")
+
+st.write("Please consider donating some of that $DOGE to the wallet address below.")
+st.write("DGVqvZW43P5yLkdZfddaPfibZcBtSxa52A")
