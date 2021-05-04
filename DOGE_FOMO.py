@@ -66,3 +66,5 @@ df = pd.DataFrame(dictionary)
 df['Dates'] = pd.to_datetime(df['Dates'],unit='ms',origin='unix')
 
 st.line_chart(df.rename(columns={"Dates":"index"}).set_index("index"))
+st.write("Please consider donating some of that sweet $DOGE to the wallet address below:")
+st.write("DGVqvZW43P5yLkdZfddaPfibZcBtSxa52A")
