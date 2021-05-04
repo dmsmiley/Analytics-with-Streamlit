@@ -1,4 +1,6 @@
 import streamlit as st
+import pandas as pd
+import matplotlib.pyplot as plt
 from pycoingecko import CoinGeckoAPI
 from datetime import datetime
 cg = CoinGeckoAPI()
@@ -24,16 +26,17 @@ st.write('''# Choose Date and Amount''')
 HIST_DATE = st.date_input("Date: ", min_value=datetime(2014,1,1), max_value=datetime.now())
 ORG_USD = st.number_input("USD Amount: ", min_value=1, max_value=999999999)
 
+
 #Reformat Historical Date for next function
 HIST_DATE_REFORMAT = HIST_DATE.strftime("%d-%m-%Y")
-
+HIST_DATE_datetime = datetime.strptime(HIST_DATE_REFORMAT,"%d-%m-%Y")
 doge_historic = cg.get_coin_history_by_id(id='dogecoin', vs_currencies='usd', date=HIST_DATE_REFORMAT)['market_data']['current_price']['usd']
 
 doge_historic = round(doge_historic, 5)
 
 st.write('''# Results''')
 st.write('''## Historic Analysis''')
-st.write("You would have originally bought: ", round((ORG_USD/doge_historic),5), " DOGE")
+st.write("You would have original bought: ", round((ORG_USD/doge_historic),5), " DOGE")
 st.write("At a price of ", doge_historic,' per DOGE')
 st.write(" ")
 
@@ -48,8 +51,18 @@ st.write("Which is a percentage change of ", round(perc_change, 2), "%")
 st.write('''# You Lost Out On''')
 st.write('$', round(usd_diff,2),"!!!")
 
+now = datetime.now()
+historical_prices = cg.get_coin_market_chart_range_by_id(id='dogecoin', vs_currency="usd", from_timestamp=HIST_DATE_datetime.timestamp(), to_timestamp=now.timestamp())['prices']
 
-st.write("")
-st.write("")
-st.write("Please consider donating some of that $DOGE to the wallet address below.")
-st.write("DGVqvZW43P5yLkdZfddaPfibZcBtSxa52A")
+dates = []
+prices = []
+
+for x,y in historical_prices:
+  dates.append(x)
+  prices.append(y)
+
+dictionary = {"Prices":prices, "Dates":dates}
+df = pd.DataFrame(dictionary)
+df['Dates'] = pd.to_datetime(df['Dates'],unit='ms',origin='unix')
+
+st.line_chart(df.rename(columns={"Dates":"index"}).set_index("index"))
