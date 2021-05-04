@@ -1,2 +1,4 @@
 streamlit==0.81.0
 pycoingecko==2.0.0
+pandas==1.2.2
+matplotlib==3.3.3
