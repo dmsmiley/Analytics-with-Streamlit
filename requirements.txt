@@ -1,3 +1,2 @@
-python==3.8.5
 streamlit==0.81.0
 pycoingecko==2.0.0
