@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 from pycoingecko import CoinGeckoAPI
-from datetime import datetime
+from datetime import datetime, timedelta
 cg = CoinGeckoAPI()
 
 st.write("""
@@ -23,7 +23,8 @@ doge_current = cg.get_price(ids='dogecoin', vs_currencies='usd')['dogecoin']['us
 
 #Giving Choices
 st.write('''# Choose Date and Amount''')
-HIST_DATE = st.date_input("Date: ", min_value=datetime(2014,1,1), max_value=datetime.now())
+previous_day = datetime.today() - timedelta(days=1)
+HIST_DATE = st.date_input("Date: ", min_value=datetime(2014,1,1), max_value=previous_day)
 ORG_USD = st.number_input("USD Amount: ", min_value=1, max_value=999999999)
 
 
