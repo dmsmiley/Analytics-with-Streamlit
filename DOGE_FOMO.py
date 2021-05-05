@@ -8,7 +8,7 @@ cg = CoinGeckoAPI()
 st.write("""
 # Doge FOMO Calculator
 Use the option below to set your parameters for:
-- Date You Wished You Would Have Bought $Doge
+- Date You Wish You Would Have Bought $Doge
 - USD Amount You Wish You Would Have Invested
 """)
 st.write('---')
