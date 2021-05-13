@@ -54,10 +54,10 @@ st.write("Which is a percentage change of ", round(perc_change, 2), "%")
 if usd_diff == 0:
    st.write('''# You Broke Even''')
 elif usd_diff <= 0:
-   st.write('''# You Saved''')
+   st.write('''# You Would Have Lost''')
 else:
-   st.write('''# You Lost Out On''') 
-st.write('$', round(usd_diff,2),"!!!")
+   st.write('''# You Missed Out On''') 
+st.write('$', abs(round(usd_diff,2)),"!!!")
 
 now = datetime.now()
 historical_prices = cg.get_coin_market_chart_range_by_id(id='dogecoin', vs_currency="usd", from_timestamp=HIST_DATE_datetime.timestamp(), to_timestamp=now.timestamp())['prices']
