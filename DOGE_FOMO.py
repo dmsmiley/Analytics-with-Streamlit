@@ -50,7 +50,13 @@ usd_diff = current_USD - ORG_USD
 
 st.write("That is currently worth: $", round(current_USD,2))
 st.write("Which is a percentage change of ", round(perc_change, 2), "%")
-st.write('''# You Lost Out On''')
+
+if usd_diff == 0:
+   st.write('''# You Broke Even''')
+elif usd_diff <= 0:
+   st.write('''# You Saved''')
+else:
+   st.write('''# You Lost Out On''') 
 st.write('$', round(usd_diff,2),"!!!")
 
 now = datetime.now()
