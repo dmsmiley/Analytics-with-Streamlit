@@ -42,7 +42,7 @@ st.write("You would have original bought: ", round((ORG_USD/doge_historic),5), "
 st.write("At a price of ", doge_historic,' per DOGE')
 st.write(" ")
 
-st.write('''## Present Affects''')
+st.write('''## Present Effects''')
 total_doge = ORG_USD/doge_historic
 current_USD = total_doge * doge_current
 perc_change = (current_USD - ORG_USD)/(ORG_USD)*100
