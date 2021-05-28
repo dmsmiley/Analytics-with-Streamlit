@@ -24,7 +24,7 @@ sm_current = cg.get_price(ids='safemoon', vs_currencies='usd')['safemoon']['usd'
 st.write('''# Choose Date and Amount''')
 today = datetime.utcnow().date()
 previous_day = today - timedelta(days=1)
-HIST_DATE = st.date_input("Date: ", value=previous_day, min_value=datetime(2020,3,13), max_value=previous_day)
+HIST_DATE = st.date_input("Date: ", value=previous_day, min_value=datetime(2021,3,14), max_value=previous_day)
 ORG_USD = st.number_input("USD Amount: ", min_value=1, max_value=999999999)
 
 
@@ -37,8 +37,8 @@ sm_historic = round(sm_historic,9)
 
 st.write('''# Results''')
 st.write('''## Historic Analysis''')
-st.write("You would have originally bought: ", round((ORG_USD/sm_historic),5), " $SAFEMOON")
-st.write("At a price of ", sm_historic,' per $SAFEMOON')
+st.write("You would have originally bought: ***{:,.2f}*** $SAFEMOON".format(round(ORG_USD/sm_historic),2))
+st.write("At a price of ***{:,.9f}*** per $SAFEMOON".format(sm_historic))
 st.write(" ")
 
 st.write('''## Present Effects''')
@@ -47,8 +47,9 @@ current_USD = total_sm * sm_current
 perc_change = (current_USD - ORG_USD)/(ORG_USD)*100
 usd_diff = current_USD - ORG_USD
 
-st.write("That is currently worth: $", round(current_USD,2))
-st.write("Which is a percentage change of ", round(perc_change, 2), "%")
+
+st.write("That is currently worth: ***${:,.2f}***".format(round(current_USD,2)))
+st.write("Which is a percentage change of ***{:,.2f}%***".format(round(perc_change, 2),))
 
 if usd_diff == 0:
    st.write('''# You Broke Even''')
@@ -56,7 +57,7 @@ elif usd_diff <= 0:
    st.write('''# You Would Have Lost''')
 else:
    st.write('''# You Missed Out On''') 
-st.write('$', abs(round(usd_diff,2)),"!!!")
+st.write('***${:,.2f}!!!***'.format(abs(round(usd_diff,2)),))
 
 now = datetime.now()
 historical_prices = cg.get_coin_market_chart_range_by_id(id='safemoon', vs_currency="usd", from_timestamp=HIST_DATE_datetime.timestamp(), to_timestamp=now.timestamp())['prices']
