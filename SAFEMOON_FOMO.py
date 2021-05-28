@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 cg = CoinGeckoAPI()
 
 st.write("""
-# Safemoon FOMO Calculator
+# $Safemoon FOMO Calculator
 Use the option below to set your parameters for:
 - Date You Wish You Would Have Bought $SAFEMOON
 - USD Amount You Wish You Would Have Invested
