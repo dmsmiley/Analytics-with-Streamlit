@@ -33,7 +33,7 @@ HIST_DATE_REFORMAT = HIST_DATE.strftime("%d-%m-%Y")
 HIST_DATE_datetime = datetime.strptime(HIST_DATE_REFORMAT,"%d-%m-%Y")
 sm_historic = cg.get_coin_history_by_id(id='safemoon', vs_currencies='usd', date=HIST_DATE_REFORMAT)['market_data']['current_price']['usd']
 
-sm_historic = round(sm_historic,9)
+sm_historic = round(sm_historic,8)
 
 st.write('''# Results''')
 st.write('''## Historic Analysis''')
