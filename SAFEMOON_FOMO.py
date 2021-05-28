@@ -33,11 +33,11 @@ HIST_DATE_REFORMAT = HIST_DATE.strftime("%d-%m-%Y")
 HIST_DATE_datetime = datetime.strptime(HIST_DATE_REFORMAT,"%d-%m-%Y")
 sm_historic = cg.get_coin_history_by_id(id='safemoon', vs_currencies='usd', date=HIST_DATE_REFORMAT)['market_data']['current_price']['usd']
 
-sm_historic = round(sm_historic, 5)
+sm_historic = round(sm_historic)
 
 st.write('''# Results''')
 st.write('''## Historic Analysis''')
-st.write("You would have original bought: ", round((ORG_USD/sm_historic),5), " $SAFEMOON")
+st.write("You would have originally bought: ", round((ORG_USD/sm_historic),5), " $SAFEMOON")
 st.write("At a price of ", sm_historic,' per $SAFEMOON')
 st.write(" ")
 
