@@ -50,10 +50,14 @@ Y = london['PRICE']
 # Header of Specify Input Parameters
 st.sidebar.header('Specify Input Parameters')
 def user_input_features():
-    SQFT = st.sidebar.slider('SQFT', X.SQFT.min(), X.SQFT.max(), X.SQFT.mean())
-    BEDS = st.sidebar.slider('BEDS', X.BEDS.min(), X.BEDS.max(), X.BEDS.mean())
-    BATHS = st.sidebar.slider('BATHS', X.BATHS.min(), X.BATHS.max(), X.BATHS.mean())
-    RECS = st.sidebar.slider('RECS', X.RECS.min(), X.RECS.max(), X.RECS.mean())
+    SQFT = st.sidebar.slider('SQFT', min_value=X.SQFT.min(), max_value=X.SQFT.max(),
+                             value=X.SQFT.mean(), step=float)
+    BEDS = st.sidebar.slider('BEDS', min_value=X.BEDS.min(), max_value=X.BEDS.max(),
+                             value=X.BEDS.mean(), step=int)
+    BATHS = st.sidebar.slider('BATHS', min_value=X.BATHS.min(), max_value=X.BATHS.max(),
+                             value=X.BATHS.mean(), step=int)
+    RECS = st.sidebar.slider('RECS',min_value=X.RECS.min(), max_value=X.RECS.max(),
+                             value=X.RECS.mean(), step=int)
     data = {'SQFT': SQFT,
             'BEDS': BEDS,
             'BATHS': BATHS,
