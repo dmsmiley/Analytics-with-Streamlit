@@ -52,12 +52,12 @@ st.sidebar.header('Specify Input Parameters')
 def user_input_features():
     SQFT = st.sidebar.slider('SQFT', min_value=X.SQFT.min(), max_value=X.SQFT.max(),
                              value=float(X.SQFT.mean()), step=float)
-    BEDS = st.sidebar.slider('BEDS', min_value=X.BEDS.min(), max_value=X.BEDS.max(),
-                             value=float(X.BEDS.mean()), step=int)
-    BATHS = st.sidebar.slider('BATHS', min_value=X.BATHS.min(), max_value=X.BATHS.max(),
-                             value=float(X.BATHS.mean()), step=int)
-    RECS = st.sidebar.slider('RECS',min_value=X.RECS.min(), max_value=X.RECS.max(),
-                             value=float(X.RECS.mean()), step=int)
+    BEDS = st.sidebar.number_input('BEDS', min_value=X.BEDS.min(), max_value=X.BEDS.max(),
+                             value=X.BEDS.mean(), step=int)
+    BATHS = st.sidebar.number_input('BATHS', min_value=X.BATHS.min(), max_value=X.BATHS.max(),
+                             value=X.BATHS.mean(), step=int)
+    RECS = st.sidebar.number_input('RECS',min_value=X.RECS.min(), max_value=X.RECS.max(),
+                             value=X.RECS.mean(), step=int)
     data = {'SQFT': SQFT,
             'BEDS': BEDS,
             'BATHS': BATHS,
