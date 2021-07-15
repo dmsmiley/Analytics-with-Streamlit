@@ -16,6 +16,7 @@ import streamlit as st
 import pandas as pd
 import shap
 import matplotlib.pyplot as plt
+from sklearn import datasets
 from sklearn.ensemble import RandomForestRegressor
 
 st.write("""
@@ -28,12 +29,12 @@ Use the sidebar to set your parameters for:
 """)
 st.write('---')
 
-st.image('data/westminster.jpg', use_column_width=True)
+st.image('/Users/David/PycharmProjects/Analytics_with_Streamlit/data/westminster.jpg', use_column_width=True)
 st.write("[Photo by Eva Dang](https://unsplash.com/@evantdang?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText)")
 
 
 # Loads the Boston House Price Dataset
-london = pd.read_csv('data/London.csv', index_col=0)
+london = pd.read_csv('/Users/David/PycharmProjects/Analytics_with_Streamlit/data/London.csv', index_col=0)
 # Drops non-numeric columns
 london = london.drop(columns=['Property Name', 'House Type', 'Location', 'City/County', 'Postal Code'])
 # Renames existing columns
@@ -84,16 +85,16 @@ st.write('---')
 
 # Explaining the model's predictions using SHAP values
 # https://github.com/slundberg/shap
-explainer = shap.TreeExplainer(model)
-shap_values = explainer.shap_values(X)
+#explainer = shap.TreeExplainer(model)
+#shap_values = explainer.shap_values(X)
 
-st.header('Feature Importance')
-plt.title('Feature importance based on SHAP values')
-shap.summary_plot(shap_values, X)
-st.set_option('deprecation.showPyplotGlobalUse', False)
-st.pyplot(bbox_inches='tight')
-st.write('---')
+#st.header('Feature Importance')
+#plt.title('Feature importance based on SHAP values')
+#shap.summary_plot(shap_values, X)
+#st.set_option('deprecation.showPyplotGlobalUse', False)
+#st.pyplot(bbox_inches='tight')
+#st.write('---')
 
-plt.title('Feature importance based on SHAP values (Bar)')
-shap.summary_plot(shap_values, X, plot_type="bar")
-st.pyplot(bbox_inches='tight')
+#plt.title('Feature importance based on SHAP values (Bar)')
+#shap.summary_plot(shap_values, X, plot_type="bar")
+#st.pyplot(bbox_inches='tight')
