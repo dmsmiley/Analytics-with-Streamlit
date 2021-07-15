@@ -51,7 +51,7 @@ Y = london['PRICE']
 st.sidebar.header('Specify Input Parameters')
 def user_input_features():
     SQFT = st.sidebar.slider('SQFT', min_value=X.SQFT.min(), max_value=X.SQFT.max(),
-                             value=float(X.SQFT.mean()))
+                             value=int(X.SQFT.mean()))
     BEDS = st.sidebar.number_input('BEDS', min_value=X.BEDS.min(), max_value=X.BEDS.max(),
                              value=int(X.BEDS.mean()))
     BATHS = st.sidebar.number_input('BATHS', min_value=X.BATHS.min(), max_value=X.BATHS.max(),
