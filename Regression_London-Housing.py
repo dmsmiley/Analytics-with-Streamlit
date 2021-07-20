@@ -94,13 +94,13 @@ st.write('---')
 # Calculate the absolute errors
 errors = abs(prediction - y_test)
 # Print out the mean absolute error (mae)
-print('Mean Absolute Error:', round(np.mean(errors), 2), 'degrees.')
+st.write('Mean Absolute Error:', round(np.mean(errors), 2), 'degrees.')
 
 # Calculate mean absolute percentage error (MAPE)
 mape = 100 * (errors / y_test)
 # Calculate and display accuracy
 accuracy = 100 - np.mean(mape)
-print('Accuracy:', round(accuracy, 2), '%.')
+st.write('Accuracy:', round(accuracy, 2), '%.')
 
 
 # Explaining the model's predictions using SHAP values
