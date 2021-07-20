@@ -88,7 +88,7 @@ y_pred = model.predict(df)
 
 #Reformat predication score from np.array to $ amount
 st.header('Prediction PRICE')
-prediction_float = "£{:,.2f}".format(prediction.item(0))
+prediction_float = "£{:,.2f}".format(y_pred.item(0))
 st.write(prediction_float)
 st.write('---')
 
