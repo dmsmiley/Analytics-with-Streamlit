@@ -18,6 +18,7 @@ import shap
 import matplotlib.pyplot as plt
 from sklearn import datasets
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import train_test_split
 
 st.write("""
 # London House Price Prediction App
@@ -73,18 +74,33 @@ st.header('Specified Input parameters')
 st.write(df)
 st.write('---')
 
+#Train and test split
+X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=.2)
+
 # Build Regression Model
 model = RandomForestRegressor()
-model.fit(X, Y)
+model.fit(X_train, y_train)
 
 # Apply Model to Make Prediction
 prediction = model.predict(df)
 
 #Reformat predication score from np.array to $ amount
-st.header('Prediction of PRICE')
+st.header('Prediction PRICE')
 prediction_float = "£{:,.2f}".format(prediction.item(0))
 st.write(prediction_float)
 st.write('---')
+
+#How accurate the model is
+# Calculate the absolute errors
+errors = abs(prediction - y_test)
+# Print out the mean absolute error (mae)
+print('Mean Absolute Error:', round(np.mean(errors), 2), 'degrees.')
+
+# Calculate mean absolute percentage error (MAPE)
+mape = 100 * (errors / y_test)
+# Calculate and display accuracy
+accuracy = 100 - np.mean(mape)
+print('Accuracy:', round(accuracy, 2), '%.')
 
 
 # Explaining the model's predictions using SHAP values
