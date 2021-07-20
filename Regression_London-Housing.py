@@ -17,6 +17,7 @@ import pandas as pd
 import shap
 import numpy as np
 import matplotlib.pyplot as plt
+from sklearn.metrics import mean_squared_error, r2_score
 from sklearn import datasets
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
@@ -83,7 +84,7 @@ model = RandomForestRegressor()
 model.fit(X_train, y_train)
 
 # Apply Model to Make Prediction
-prediction = model.predict(df)
+y_pred = model.predict(df)
 
 #Reformat predication score from np.array to $ amount
 st.header('Prediction PRICE')
@@ -93,15 +94,15 @@ st.write('---')
 
 #How accurate the model is
 # Calculate the absolute errors
-errors = abs(prediction - y_test)
+#errors = abs(prediction - y_test)
 # Print out the mean absolute error (mae)
-st.write('Mean Absolute Error:', round(np.mean(errors), 2), 'degrees.')
+#st.write('Mean Absolute Error:', round(np.mean(errors), 2), 'degrees.')
 
 # Calculate mean absolute percentage error (MAPE)
-mape = 100 * (errors / y_test)
+#mape = 100 * (errors / y_test)
 # Calculate and display accuracy
-accuracy = 100 - np.mean(mape)
-st.write('Accuracy:', round(accuracy, 2), '%.')
+#accuracy = 100 - np.mean(mape)
+st.write('Accuracy:', r2_score(Y, model.predict(X))*100), '%.')
 
 
 # Explaining the model's predictions using SHAP values
