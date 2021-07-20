@@ -102,7 +102,7 @@ st.write('---')
 #mape = 100 * (errors / y_test)
 # Calculate and display accuracy
 #accuracy = 100 - np.mean(mape)
-st.write('Accuracy:', r2_score(Y, model.predict(X))*100), '%.')
+st.write('Accuracy:', r2_score(Y, model.predict(X)*100), '%.')
 
 
 # Explaining the model's predictions using SHAP values
