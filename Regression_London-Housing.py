@@ -15,6 +15,7 @@
 import streamlit as st
 import pandas as pd
 import shap
+import numpy as np
 import matplotlib.pyplot as plt
 from sklearn import datasets
 from sklearn.ensemble import RandomForestRegressor
