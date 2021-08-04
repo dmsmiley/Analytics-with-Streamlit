@@ -39,7 +39,7 @@ doge_historic = round(doge_historic, 5)
 st.write('''# Results''')
 st.write('''## Historic Analysis''')
 st.write("You would have originally bought: ***{:,.2f}*** $DOGE".format(round((ORG_USD/doge_historic),5)))
-st.write("At a price of ***{:,.9f}*** per $DOGE'.format(doge_historic))
+st.write("At a price of ***{:,.9f}*** per $DOGE".format(doge_historic))
 st.write(" ")
 
 st.write('''## Present Effects''')
