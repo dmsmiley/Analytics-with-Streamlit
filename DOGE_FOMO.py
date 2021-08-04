@@ -38,8 +38,8 @@ doge_historic = round(doge_historic, 5)
 
 st.write('''# Results''')
 st.write('''## Historic Analysis''')
-st.write("You would have original bought: ", round((ORG_USD/doge_historic),5), " DOGE")
-st.write("At a price of ", doge_historic,' per DOGE')
+st.write("You would have originally bought: ***{:,.2f}*** $DOGE".format(round((ORG_USD/doge_historic),5)))
+st.write("At a price of ***{:,.9f}*** per $DOGE'.format(doge_historic))
 st.write(" ")
 
 st.write('''## Present Effects''')
@@ -48,8 +48,8 @@ current_USD = total_doge * doge_current
 perc_change = (current_USD - ORG_USD)/(ORG_USD)*100
 usd_diff = current_USD - ORG_USD
 
-st.write("That is currently worth: $", round(current_USD,2))
-st.write("Which is a percentage change of ", round(perc_change, 2), "%")
+st.write("That is currently worth: ***${:,.2f}***".format(round(current_USD,2)))
+st.write("Which is a percentage change of ***{:,.2f}%***".format(round(perc_change, 2),))
 
 if usd_diff == 0:
    st.write('''# You Broke Even''')
@@ -57,7 +57,7 @@ elif usd_diff <= 0:
    st.write('''# You Would Have Lost''')
 else:
    st.write('''# You Missed Out On''') 
-st.write('$', abs(round(usd_diff,2)),"!!!")
+st.write('***${:,.2f}!!!***'.format(abs(round(usd_diff,2)),))
 
 now = datetime.now()
 historical_prices = cg.get_coin_market_chart_range_by_id(id='dogecoin', vs_currency="usd", from_timestamp=HIST_DATE_datetime.timestamp(), to_timestamp=now.timestamp())['prices']
