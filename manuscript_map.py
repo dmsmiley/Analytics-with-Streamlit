@@ -117,8 +117,6 @@ final_df = final_df.drop(columns='lat_long')
 
 final_df[['Latitude','Longitude']] = final_df[['Latitude','Longitude']].astype(float)
 
-manuscript_map.add_child(FastMarkerCluster(final_df[['Latitude','Longitude']].values.tolist()))
-
 with st.echo():
     import streamlit as st
     from streamlit_folium import folium_static
