@@ -123,11 +123,11 @@ with st.echo():
     import folium
 
     # center on Liberty Bell
-    manuscript_map = folium.Map(location=[31.7683, 35.2137], zoom_start=4)
+    m = folium.Map(location=[31.7683, 35.2137], zoom_start=4)
 
     # add marker for Liberty Bell
-    manuscript_map.add_child(FastMarkerCluster(final_df[['Latitude','Longitude']].values.tolist()))
+    m.add_child(FastMarkerCluster(final_df[['Latitude','Longitude']].values.tolist()))
 
     # call to render Folium map in Streamlit
-    folium_static(manuscript_map)
+    folium_static(m)
 
