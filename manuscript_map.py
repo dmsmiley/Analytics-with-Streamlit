@@ -117,6 +117,8 @@ final_df = final_df.drop(columns='lat_long')
 
 final_df[['Latitude','Longitude']] = final_df[['Latitude','Longitude']].astype(float)
 
+st.write("Data from [vHMML's Reading Room Datasets](https://www.vhmml.org/dataPortal/dataset)")
+
 with st.echo():
     import streamlit as st
     from streamlit_folium import folium_static
