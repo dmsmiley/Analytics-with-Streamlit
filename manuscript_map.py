@@ -123,7 +123,7 @@ with st.echo():
     import folium
 
     # center on Liberty Bell
-    manuscript_map = folium.Map(location=[31.7683, 35.2137], zoom_start=10)
+    manuscript_map = folium.Map(location=[31.7683, 35.2137], zoom_start=4)
 
     # add marker for Liberty Bell
     manuscript_map.add_child(FastMarkerCluster(final_df[['Latitude','Longitude']].values.tolist()))
