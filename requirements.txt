@@ -8,3 +8,4 @@ numpy==1.21.1
 geopy==2.2.0
 unidecode==1.2.0
 folium==0.12.1
+streamlit_folium==0.4.0
