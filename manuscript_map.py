@@ -7,6 +7,8 @@ from geopy.geocoders import Nominatim
 import unidecode
 import folium
 from folium.plugins import FastMarkerCluster
+import streamlit as st
+from streamlit_folium import folium_static
 
 # instantiate a new Nominatim client
 app = Nominatim(user_agent="tutorial")
@@ -113,8 +115,21 @@ final_df = pd.merge(df_new, lat_long, left_index=True, right_index=True)
 
 final_df = final_df.drop(columns='lat_long')
 
-manuscript_map = folium.Map(location=[31.7683, 35.2137], zoom_start=10)
-
 final_df[['Latitude','Longitude']] = final_df[['Latitude','Longitude']].astype(float)
 
 manuscript_map.add_child(FastMarkerCluster(final_df[['Latitude','Longitude']].values.tolist()))
+
+with st.echo():
+    import streamlit as st
+    from streamlit_folium import folium_static
+    import folium
+
+    # center on Liberty Bell
+    manuscript_map = folium.Map(location=[31.7683, 35.2137], zoom_start=10)
+
+    # add marker for Liberty Bell
+    manuscript_map.add_child(FastMarkerCluster(final_df[['Latitude','Longitude']].values.tolist()))
+
+    # call to render Folium map in Streamlit
+    folium_static(manuscript_map)
+
