@@ -10,6 +10,9 @@ from folium.plugins import FastMarkerCluster
 import streamlit as st
 from streamlit_folium import folium_static
 
+st.write("Data from [vHMML's Reading Room Datasets](https://www.vhmml.org/dataPortal/dataset)")
+st.write("Map may take a few seconds to render")
+
 # instantiate a new Nominatim client
 app = Nominatim(user_agent="tutorial")
 
@@ -116,8 +119,6 @@ final_df = pd.merge(df_new, lat_long, left_index=True, right_index=True)
 final_df = final_df.drop(columns='lat_long')
 
 final_df[['Latitude','Longitude']] = final_df[['Latitude','Longitude']].astype(float)
-
-st.write("Data from [vHMML's Reading Room Datasets](https://www.vhmml.org/dataPortal/dataset)")
 
 with st.echo():
     import streamlit as st
