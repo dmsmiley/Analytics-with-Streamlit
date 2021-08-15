@@ -1,3 +1,6 @@
+vHMML Manuscript Map App
+https://share.streamlit.io/dmsmiley/analytics-with-streamlit/main/manuscript_map.py
+
 $SAFEMOON FOMO Calculator App
 https://share.streamlit.io/dmsmiley/analytics-with-streamlit/main/SAFEMOON_FOMO.py
 
