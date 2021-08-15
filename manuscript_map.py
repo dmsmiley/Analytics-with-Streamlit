@@ -104,7 +104,7 @@ d = {'Admont, Austria': (47.573782, 14.4615721), 'Altenburg (Horn), Austria': (4
  'Niranam, India': (9.34694315, 76.52435977189701), 'Omallur, India': (9.2637978, 76.7122424), 'Pampady, India': (9.5656334, 76.6443645), 'Pampakuda, India': (9.8832875, 76.5496583),
  'Pattimattom (Ernakulam), India': (10.0250461, 76.4496282), 'Piramadom, India': (9.9397403, 76.5369534333017), 'Tiruvalla, India': (9.3867448, 76.5762652), 'Tripunithura, India': (9.944873, 76.3473243),
  'Trivandrum, India': (8.5241122, 76.9360573), 'Udayagiri (Kerala), India': (12.2394969, 75.4829261), 'Paderborn, Germany': (51.71895955, 8.764869778177559), 'Exeter (England), Great Britain': (50.7255794, 3.5269497),
- 'Midyat, Turkey': (37.4152129, 41.3734423), 'Aleppo, Syria': (36.19924, 37.1637253)}
+ 'Midyat, Turkey': (37.4152129, 41.3734423), 'Aleppo, Syria': (36.19924, 37.1637253), 'Sinjar, Iraq': (36.3209, 41.87656)}
 
 df_new['lat_long'] = df_new['list_unique_city'].map(d)
 
@@ -120,17 +120,11 @@ final_df = final_df.drop(columns='lat_long')
 
 final_df[['Latitude','Longitude']] = final_df[['Latitude','Longitude']].astype(float)
 
-with st.echo():
-    import streamlit as st
-    from streamlit_folium import folium_static
-    import folium
+# center on Liberty Bell
+m = folium.Map(location=[31.7683, 35.2137], zoom_start=4)
 
-    # center on Liberty Bell
-    m = folium.Map(location=[31.7683, 35.2137], zoom_start=4)
+# add marker for Liberty Bell
+m.add_child(FastMarkerCluster(final_df[['Latitude','Longitude']].values.tolist()))
 
-    # add marker for Liberty Bell
-    m.add_child(FastMarkerCluster(final_df[['Latitude','Longitude']].values.tolist()))
-
-    # call to render Folium map in Streamlit
-    folium_static(m)
-
+# call to render Folium map in Streamlit
+folium_static(m)
